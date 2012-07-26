@@ -1,0 +1,14 @@
+- What is Cuba?
+- Installation
+- Simplest thing that can possibly work
+- Using cuba in a classic fashion
+- Templates with Tilt
+- Cuba's love affair with Mote
+- Helpers
+- Organizing your application
+- Using middleware
+- Testing (the light and _easy_ way)
+- Shotgun (if you think it's slow, you're doing something wrong)
+- Deployment (Heroku / self deployment)
+- Authoring your own plugns
+- Cuba Contrib
