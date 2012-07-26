@@ -12,3 +12,15 @@
 - Deployment (Heroku / self deployment) (cyx)
 - Authoring your own plugns (cyx)
 - Cuba Contrib (cyx)
+
+# Cuba Contrib
+
+Over the course of the years, we've been able to identify the most basic
+set of features that we've needed for the majority of our projects. We've
+extracted most of these in a plugin, so others can benefit from our work.
+
+## Getting cuba-contrib
+
+## Setting up your project to use cuba-contrib
+
+## Contributing to cuba-contrib.
