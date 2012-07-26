@@ -225,20 +225,11 @@ functions in `cuba-contrib`:
 require 'cuba'
 require 'cuba/contrib'
 
-Cuba.plugin Cuba::Prelude
 Cuba.plugin Cuba::TextHelpers
 Cuba.plugin Cuba::With
 
 Cuba.define do
   on root do
-    # this writes http%3A%2F%2Fwww.google.com
-    res.write urlencode("http://www.google.com.com")
-
-    # writes Cuba &amp; Cuba Contrib
-    res.write h("Cuba & Cuba Contrib")
-  end
-
-  on "text-helpers" do
     lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing " +
             "elit, sed do eiusmod tempor incididunt ut labore et " +
             "dolore magna aliqua."
