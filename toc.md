@@ -15,8 +15,8 @@
 
 # What is Cuba?
 
-Cuba is a microframework for web development originally inspired by [Rum][rum],
-a tiny but powerful mapper for [Rack][rack] applications.
+Cuba is a microframework for web development originally inspired by
+[Rum][rum], a tiny but powerful mapper for [Rack][rack] applications.
 
 It integrates many templates via [Tilt][tilt], it's very easy to test
 with either [rack-test][rack-test] or [Capybara][capybara].
@@ -25,6 +25,32 @@ with either [rack-test][rack-test] or [Capybara][capybara].
 [rack]: http://github.com/chneukirchen/rack
 [tilt]: http://github.com/rtomayko/tilt
 [capybara]: http://github.com/jnicklas/capybara
+
+# Installation
+
+Cuba is a Ruby program and it's tested against Ruby 1.9.
+
+It comes in gem format, and you can install it from the command line:
+
+    $ gem install cuba
+
+# Simplest thing that can possibly work
+
+# Using Cuba in a classic fashion
+
+# Templates with Tilt
+
+# Cuba's love afair with Mote
+
+# Helpers
+
+# Organizing your application
+
+# Using middleware
+
+# Testing (the light and easy way)
+
+# Shotgun (if you think it's slow, you are doing something wrong)
 
 # Deployment
 
