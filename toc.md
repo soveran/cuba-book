@@ -62,7 +62,7 @@ useful function, `on`. Let's talk about `on` first.
 
 ### Flow control with `on`
 
-If you know how to deal with nested `if/else` or nested `case` blocks,
+If you know how to deal with nested `if`/`else` or nested `case` blocks,
 you will get the idea behind `on` pretty easily.
 
 It executes the passed block only if all of its arguments evaluate to
@@ -103,7 +103,53 @@ run Cuba
 
 When one of the arguments to `on` evaluates to `false` or `nil`, the
 block is skipped and the next call to `on` takes place. In this case,
-only the last block will run.
+only the last block will run. One last example will clarify what
+happens when more than one call to `on` succeeds:
+
+```ruby
+require 'cuba'
+
+Cuba.define do
+  on true do
+    res.write "This block will execute"
+  end
+
+  on true do
+    res.write "This block will never execute"
+  end
+end
+
+run Cuba
+```
+
+In this case, the first successful call to `on` wins. Once the
+attached block is executed, the application will never evaluate
+subsequent calls to `on`. This behavior is very important, because not
+only it is key to Cuba's performance, but it can also be a huge gotcha
+if you ignore it.
+
+## Nested `on` blocks
+
+What happens when you nest several `on` blocks is what you would
+expect from nested `if`/`else` statements. Why don't we just use `if`
+and `else`, you may ask: the answer is that `on` does a bit more, and
+we will learn about that later.
+
+```ruby
+require 'cuba'
+
+Cuba.define do
+  on true do
+    on true do
+      on true do
+        res.write "Hello from a deeply nested block"
+      end
+    end
+  end
+end
+
+run Cuba
+```
 
 # Using Cuba in a classic fashion
 
