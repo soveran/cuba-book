@@ -9,9 +9,20 @@
 - Using middleware (cyx)
 - Testing (the light and _easy_ way) (cyx)
 - Shotgun (if you think it's slow, you're doing something wrong) (cyx)
-- Deployment (Heroku / self deployment) (cyx)
-- Authoring your own plugns (cyx)
-- Cuba Contrib (cyx)
+# Deployment
+
+## Heroku
+
+## Deploying on your own server
+
+# Authoring your own plugns
+
+Cuba comes with a very simple, yet powerful plugin system.
+
+## Adding a couple of helper methods
+
+## A more complete plugin
+
 
 # What is Cuba?
 
