@@ -1,7 +1,7 @@
 - What is Cuba?
 - Installation
 - Simplest thing that can possibly work (cyx)
-- Using cuba in a classic fashion
+- Using Cuba in a classic fashion
 - Templates with Tilt
 - Cuba's love affair with Mote
 - Helpers
