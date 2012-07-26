@@ -1,16 +1,4 @@
 - What is Cuba?
-
-Cuba is a microframework for web development originally inspired by [Rum][rum],
-a tiny but powerful mapper for [Rack][rack] applications.
-
-It integrates many templates via [Tilt][tilt], it's very easy to test
-with either [rack-test][rack-test] or [Capybara][capybara].
-
-[rum]: http://github.com/chneukirchen/rum
-[rack]: http://github.com/chneukirchen/rack
-[tilt]: http://github.com/rtomayko/tilt
-[capybara]: http://github.com/jnicklas/capybara
-
 - Installation
 - Simplest thing that can possibly work (cyx)
 - Using Cuba in a classic fashion
@@ -24,6 +12,19 @@ with either [rack-test][rack-test] or [Capybara][capybara].
 - Deployment (Heroku / self deployment) (cyx)
 - Authoring your own plugns (cyx)
 - Cuba Contrib (cyx)
+
+# What is Cuba?
+
+Cuba is a microframework for web development originally inspired by [Rum][rum],
+a tiny but powerful mapper for [Rack][rack] applications.
+
+It integrates many templates via [Tilt][tilt], it's very easy to test
+with either [rack-test][rack-test] or [Capybara][capybara].
+
+[rum]: http://github.com/chneukirchen/rum
+[rack]: http://github.com/chneukirchen/rack
+[tilt]: http://github.com/rtomayko/tilt
+[capybara]: http://github.com/jnicklas/capybara
 
 # Cuba Contrib
 
