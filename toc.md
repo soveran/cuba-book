@@ -53,6 +53,58 @@ $ rackup config.ru
 
 Going to http://localhost:9292/ should say the proverbial "Hello world".
 
+## What's happening?
+
+The fastest way to define a Cuba app is, as you might have guessed,
+with the `Cuba.define do ... end` block. Within that block, you have
+some objects available, such as `env`, `req` and `res`, and a very
+useful function, `on`. Let's talk about `on` first.
+
+### Flow control with `on`
+
+If you know how to deal with nested `if/else` or nested `case` blocks,
+you will get the idea behind `on` pretty easily.
+
+It executes the passed block only if all of its arguments evaluate to
+`true`. Let's look at this example:
+
+```ruby
+require 'cuba'
+
+Cuba.define do
+  on true, 2 + 2 == 4 do
+    res.write "Hello world"
+  end
+end
+
+run Cuba
+```
+
+As both arguments (`true` and `2 + 2 == 4`) evaluate to `true`, the
+block is executed and the string `"Hello world"` is written to the
+response object. You are not limited to having one `on` block, though.
+Let's look at another example:
+
+```ruby
+require 'cuba'
+
+Cuba.define do
+  on false do
+    res.write "This block will never execute"
+  end
+
+  on true do
+    res.write "This block will execute"
+  end
+end
+
+run Cuba
+```
+
+When one of the arguments to `on` evaluates to `false` or `nil`, the
+block is skipped and the next call to `on` takes place. In this case,
+only the last block will run.
+
 # Using Cuba in a classic fashion
 
 # Templates with Tilt
