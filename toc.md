@@ -1,14 +1,14 @@
 - What is Cuba?
 - Installation
-- Simplest thing that can possibly work
+- Simplest thing that can possibly work (cyx)
 - Using cuba in a classic fashion
 - Templates with Tilt
 - Cuba's love affair with Mote
 - Helpers
 - Organizing your application
-- Using middleware
-- Testing (the light and _easy_ way)
-- Shotgun (if you think it's slow, you're doing something wrong)
-- Deployment (Heroku / self deployment)
-- Authoring your own plugns
-- Cuba Contrib
+- Using middleware (cyx)
+- Testing (the light and _easy_ way) (cyx)
+- Shotgun (if you think it's slow, you're doing something wrong) (cyx)
+- Deployment (Heroku / self deployment) (cyx)
+- Authoring your own plugns (cyx)
+- Cuba Contrib (cyx)
