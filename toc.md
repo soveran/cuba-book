@@ -9,20 +9,9 @@
 - Using middleware (cyx)
 - Testing (the light and _easy_ way) (cyx)
 - Shotgun (if you think it's slow, you're doing something wrong) (cyx)
-# Deployment
-
-## Heroku
-
-## Deploying on your own server
-
-# Authoring your own plugns
-
-Cuba comes with a very simple, yet powerful plugin system.
-
-## Adding a couple of helper methods
-
-## A more complete plugin
-
+- Deployment
+- Authoring your own plugins
+- Cuba Contrib
 
 # What is Cuba?
 
@@ -36,6 +25,20 @@ with either [rack-test][rack-test] or [Capybara][capybara].
 [rack]: http://github.com/chneukirchen/rack
 [tilt]: http://github.com/rtomayko/tilt
 [capybara]: http://github.com/jnicklas/capybara
+
+# Deployment
+
+## Heroku
+
+## Deploying on your own server
+
+# Authoring your own plugins
+
+Cuba comes with a very simple, yet powerful plugin system.
+
+## Adding a couple of helper methods
+
+## A more complete plugin
 
 # Cuba Contrib
 
