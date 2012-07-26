@@ -21,11 +21,6 @@ Cuba is a microframework for web development originally inspired by
 It integrates many templates via [Tilt][tilt], it's very easy to test
 with either [rack-test][rack-test] or [Capybara][capybara].
 
-[rum]: http://github.com/chneukirchen/rum
-[rack]: http://github.com/chneukirchen/rack
-[tilt]: http://github.com/rtomayko/tilt
-[capybara]: http://github.com/jnicklas/capybara
-
 # Installation
 
 Cuba is a Ruby program and it's tested against Ruby 1.9.
@@ -39,6 +34,42 @@ It comes in gem format, and you can install it from the command line:
 # Using Cuba in a classic fashion
 
 # Templates with Tilt
+
+Cuba ships with a plugin that provides helpers for rendering
+templates. It uses [Tilt][tilt], a gem that interfaces with many
+template engines.
+
+``` ruby
+require "cuba/render"
+
+Cuba.plugin Cuba::Render
+
+Cuba.define do
+  on default do
+
+    # Within the partial, you will have access to the local variable
+    # `content`, that will hold the value "hello, world".
+    res.write render("home.haml", content: "hello, world")
+  end
+end
+```
+
+Note that in order to use this plugin you need to have [Tilt][tilt]
+installed, along with the templating engines you want to use.
+
+Two more helpers are available, but let's first shed some light to the
+configuration options.
+
+The `Cuba::Render` plugin looks for settings in the `:render`
+namespace:
+
+```ruby
+# The default path to views is `File.expand_path("views", Dir.pwd)`.
+Cuba.settings[:render].store(:views, File.expand_path("tpl", Dir.pwd))
+
+# The default template engine is `erb`.
+Cuba.settings[:render].store(:template_engine, "haml")
+```
 
 # Cuba's love afair with Mote
 
@@ -77,3 +108,8 @@ extracted most of these in a plugin, so others can benefit from our work.
 ## Setting up your project to use cuba-contrib
 
 ## Contributing to cuba-contrib.
+
+[rum]: http://github.com/chneukirchen/rum
+[rack]: http://github.com/chneukirchen/rack
+[tilt]: http://github.com/rtomayko/tilt
+[capybara]: http://github.com/jnicklas/capybara
