@@ -219,13 +219,101 @@ Cuba comes with a very simple, yet powerful plugin system.
 
 # Cuba Contrib
 
-Over the course of the years, we've been able to identify the most basic
-set of features that we've needed for the majority of our projects. We've
-extracted most of these in a plugin, so others can benefit from our work.
+Over the course of the years, we've been able to identify the most
+basic set of features that we've needed for the majority of our
+projects. We've extracted most of these in a plugin, so others can
+benefit from our work.
 
 ## Getting cuba-contrib
 
+The source code of cuba contrib is [hosted in github][cuba-contrib].
+To install it simply use rubygems:
+
+```term
+$ gem install cuba-contrib
+```
+
+After that, you should be ready to go!
+
 ## Setting up your project to use cuba-contrib
+
+Once you have cuba contrib installed, you can require it in one of two
+ways:
+
+1. Require everything - you do this by requiring `cuba/contrib`.
+2. Require only specific plugins - you can cherry pick only the
+   plugins you want, e.g. `cuba/prelude`, `cuba/text_helpers`.
+
+The following example briefly shows a Cuba app making use of
+`Cuba::Prelude`.
+
+```ruby
+require 'cuba'
+require 'cuba/prelude'
+
+Cuba.plugin Cuba::Prelude
+
+Cuba.define do
+  on root do
+    # this writes http%3A%2F%2Fwww.google.com
+    res.write urlencode("http://www.google.com.com")
+
+    # writes Cuba &amp; Cuba Contrib
+    res.write h("Cuba & Cuba Contrib")
+  end
+end
+```
+
+The following paints a more extensive example of all the available
+functions in `cuba-contrib`:
+
+```ruby
+require 'cuba'
+require 'cuba/contrib'
+
+Cuba.plugin Cuba::TextHelpers
+Cuba.plugin Cuba::With
+
+Cuba.define do
+  on root do
+    lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing " +
+            "elit, sed do eiusmod tempor incididunt ut labore et " +
+            "dolore magna aliqua."
+
+    res.write truncate(lorem, 10)
+    # => Lorem ipsu...
+
+    res.write titlecase("hello there")
+    # => Hello There
+
+    res.write currency(99.9)
+    # => $ 99.90
+    res.write currency(99.9, "EUR")
+    # => EUR 99.90
+
+    reply = <<-EOT
+    Greetings,
+
+    This is my response to you.
+
+    Thanks,
+    john
+    EOT
+
+    res.write nl2br(reply)
+    # => Greetings,<br><br>This is my response to
+    # you.<br><br>Thanks,<br>john
+
+    res.write delimit(100_000)
+    # => 100,000
+    res.write delimit(1_000_000, ".")
+    # => 1.000.000
+
+    res.write markdown("# Title\n## Subtitle")
+    # => <h1>Subtitle</h1> <h2>Subtitle</h2>
+  end
+end
+```
 
 ## Contributing to cuba-contrib.
 
@@ -234,3 +322,4 @@ extracted most of these in a plugin, so others can benefit from our work.
 [tilt]: http://github.com/rtomayko/tilt
 [capybara]: http://github.com/jnicklas/capybara
 [rack-test]: https://github.com/brynary/rack-test
+[cuba-contrib]: https://github.com/cyx/cuba-contrib
