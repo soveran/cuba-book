@@ -181,7 +181,7 @@ benefit from our work.
 ## Getting cuba-contrib
 
 The source code of cuba contrib is [hosted in github][cuba-contrib].
-To install To install it simply use rubygems:
+To install it simply use rubygems:
 
 ```term
 $ gem install cuba-contrib
