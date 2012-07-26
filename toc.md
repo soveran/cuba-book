@@ -113,3 +113,4 @@ extracted most of these in a plugin, so others can benefit from our work.
 [rack]: http://github.com/chneukirchen/rack
 [tilt]: http://github.com/rtomayko/tilt
 [capybara]: http://github.com/jnicklas/capybara
+[rack-test]: https://github.com/brynary/rack-test
