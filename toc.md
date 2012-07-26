@@ -151,7 +151,26 @@ end
 run Cuba
 ```
 
-# Using Cuba in a classic fashion
+# Using Cuba like most web frameworks
+
+Typically in most frameworks, you're limited to routing using only the
+path. Similarly, Cuba can be used in the same manner:
+
+```ruby
+Cuba.define do
+  on get, "about" do
+    res.write "About"
+  end
+
+  on get, "contact" do
+    res.write "Contact"
+  end
+
+  on post, "contact" do
+    res.write "Just posted info."
+  end
+end
+```
 
 # Templates with Tilt
 
