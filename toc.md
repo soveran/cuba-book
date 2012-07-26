@@ -31,6 +31,28 @@ It comes in gem format, and you can install it from the command line:
 
 # Simplest thing that can possibly work
 
+Open up your text editor, and write the following file:
+
+```ruby
+require 'cuba'
+
+Cuba.define do
+  on root do
+    res.write "Hello world"
+  end
+end
+
+run Cuba
+```
+
+Save this file as `config.ru`. You can then try running this file:
+
+```term
+$ rackup config.ru
+```
+
+Going to http://localhost:9292/ should say the proverbial "Hello world".
+
 # Using Cuba in a classic fashion
 
 # Templates with Tilt
