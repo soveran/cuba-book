@@ -1,6 +1,6 @@
 - What is Cuba?
 - Installation
-- Simplest thing that can possibly work (cyx)
+- Hola Cuba
 - Using Cuba in a classic fashion
 - Templates with Tilt
 - Cuba's love affair with Mote
@@ -29,7 +29,7 @@ It comes in gem format, and you can install it from the command line:
 
     $ gem install cuba
 
-# Simplest thing that can possibly work
+# Hola Cuba
 
 Open up your text editor, and write the following file:
 
