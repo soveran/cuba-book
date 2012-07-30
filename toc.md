@@ -154,7 +154,26 @@ run Cuba
 All the blocks will get executed, and the response will contain the
 passed string.
 
-# Using Cuba in a classic fashion
+# Using Cuba like most web frameworks
+
+Typically in most frameworks, you're limited to routing using only the
+path. Similarly, Cuba can be used in the same manner:
+
+```ruby
+Cuba.define do
+  on get, "about" do
+    res.write "About"
+  end
+
+  on get, "contact" do
+    res.write "Contact"
+  end
+
+  on post, "contact" do
+    res.write "Just posted info."
+  end
+end
+```
 
 # Templates with Tilt
 
@@ -267,15 +286,17 @@ Cuba.define do
 end
 ```
 
-The following paints a more extensive example of all the available
-functions in `cuba-contrib`:
+### Text Helpers
+
+We've all need these functions time and again, and we've written
+them as simply as we possibly could. There was rarely a project that
+didn't use all of these helpers.
 
 ```ruby
 require 'cuba'
-require 'cuba/contrib'
+require 'cuba/text_helpers'
 
 Cuba.plugin Cuba::TextHelpers
-Cuba.plugin Cuba::With
 
 Cuba.define do
   on root do
@@ -314,6 +335,60 @@ Cuba.define do
 
     res.write markdown("# Title\n## Subtitle")
     # => <h1>Subtitle</h1> <h2>Subtitle</h2>
+  end
+end
+```
+
+### Storing variables using Cuba::With
+
+Often times when you compose your apps, you run into the problem of
+needing to stash certain variables. Good thing for us, there has been
+a standard pattern to do this with rack apps, which is to store store
+in the `env`.
+
+```ruby
+on "users/:id" do |id|
+  env["cuba.vars"] ||= {}
+  env["cuba.vars"]["user_id"] = id
+
+  on photos do
+    run Photos
+  end
+
+  env["cuba.vars"].delete("user_id")
+end
+
+class Photos < Cuba
+  define do
+    on root do
+      res.write "Photos for user: %s" % env["cuba.vars"]["user_id"]
+    end
+  end
+end
+```
+
+Of course this poses a couple of problems:
+
+1. It becomes too dirty too quickly.
+2. We have to manually manage cleanup.
+
+Cuba::With eliminates all both issues. The following shows the same
+code but rewritten to use Cuba::With:
+
+```ruby
+on "users/:id" do |id|
+  with user_id: id do
+    on "photos" do
+      run Photos
+    end
+  end
+end
+
+class Photos < Cuba
+  define do
+    on root do
+      res.write "Photos for user: %s" % vars[:user_id]
+    end
   end
 end
 ```
