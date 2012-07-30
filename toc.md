@@ -151,6 +151,9 @@ end
 run Cuba
 ```
 
+All the blocks will get executed, and the response will contain the
+passed string.
+
 # Using Cuba in a classic fashion
 
 # Templates with Tilt
