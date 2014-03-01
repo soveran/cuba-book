@@ -33,8 +33,8 @@ Save this file as `config.ru`. You can now try running it:
 $ rackup config.ru
 ```
 
-Going to http://localhost:9292/ should say the proverbial "Hello
-world".
+Going to [http://localhost:9292/](http://localhost:/9292) should
+say the proverbial "Hello world".
 
 The fastest way to define a Cuba app is, as you might have
 guessed, with the `Cuba.define do ... end` block. Within that
